@@ -1,0 +1,55 @@
+package com.test.movie.infraestructure.restful.controllers.favorites;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.test.movie.application.repository.FavoriteListRepository;
+import com.test.movie.application.usescases.favorite.AddList;
+import com.test.movie.domain.FavoriteList;
+import com.test.movie.infrastructure.restful.controllers.favorites.AddListController;
+import com.test.movie.infrastructure.restful.dto.mappers.ListRequestMapper;
+import com.test.movie.infrastructure.restful.dto.response.ResponseDto;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@ExtendWith(MockitoExtension.class)
+public class AddListControllerTest {
+
+
+    @InjectMocks
+    AddListController addListController;
+
+    @Mock
+    AddList addList;
+
+    @Autowired
+    private MockMvc mockMvc;
+
+
+    @Test
+    public void shouldTestOk(){
+        FavoriteList favoriteList = new FavoriteList();
+        favoriteList.setId(1);
+        favoriteList.setName("List Daniel");
+        favoriteList.setDescription("Description List Daniel");
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
+        Mockito.when(addList.invoke(favoriteList)).thenReturn(favoriteList);
+        ResponseEntity<?> response = addListController.add(ListRequestMapper.INSTANCE.favoriteToListRequest(favoriteList));
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+
+}
