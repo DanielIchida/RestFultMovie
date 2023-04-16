@@ -23,7 +23,7 @@ Create Container - docker run -p 8080:8080 movie-test
 https://movieapitest.azurewebsites.net/doc/swagger-ui/index.html
 
 ### Servicios de Azure Utilizados
-- Azure Devops
-- 
+- Azure Devops CI/CD
+- Azure Registry Container
 - Web Apps on Container
 
