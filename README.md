@@ -19,4 +19,11 @@ Build Maven - mvn clean install <br>
 Create Image - docker build -t movie-test <br>
 Create Container - docker run -p 8080:8080 movie-test
 
+### Link Swagger
+https://movieapitest.azurewebsites.net/doc/swagger-ui/index.html
+
+### Servicios de Azure Utilizados
+- Azure Devops
+- 
+- Web Apps on Container
 
