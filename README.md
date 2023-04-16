@@ -5,7 +5,7 @@ GET - https://movieapitest.azurewebsites.net/favorite/list/{id} <br>
 POST - https://movieapitest.azurewebsites.net/favorite/list <br>
        Body {"name" : "Daniel","description" : "Mi lista peliculas Accion"} <br>
 PUT - https://movieapitest.azurewebsites.net/favorite/list/{id} <br>
-       Body {"name" : "Daniel","description" : "Mi lista peliculas Accion"}
+       Body {"name" : "Daniel","description" : "Mi lista peliculas Accion"} <br>
 DELETE - https://movieapitest.azurewebsites.net/favorite/list/{id} <br>
 ### 2. no mostrar más 20 películas en la carga inicial, Construir un paginador para controlar la cantidad de data proveniente de la API (GET)
 GET - https://movieapitest.azurewebsites.net/movies/{query}/{page} <br>
